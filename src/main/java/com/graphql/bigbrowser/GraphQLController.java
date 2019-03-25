@@ -21,12 +21,13 @@ public class GraphQLController {
 
     private final GraphQL graphQL;
 
-    public GraphQLController(UserService userService) {
+    public GraphQLController(UserService userService, CommuneService communeService) {
         GraphQLSchema schema = new GraphQLSchemaGenerator()
                 .withResolverBuilders(
                         //Resolve by annotations
                         new AnnotatedResolverBuilder())
                 .withOperationsFromSingleton(userService)
+                .withOperationsFromSingleton(communeService)
                 .withValueMapperFactory(new JacksonValueMapperFactory())
                 .generate();
         graphQL = GraphQL.newGraphQL(schema).build();

@@ -14,23 +14,18 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
 public class User {
+
     @Id @GeneratedValue
     @GraphQLQuery(name = "id", description = "A user's id")
     private Long id;
+
     @GraphQLQuery(name = "username", description = "A user's username")
     private @NonNull String username;
-    @GraphQLQuery(name = "commune", description = "A user's commune")
-    private @NonNull String commune;
+
+    @GraphQLQuery(name = "insee", description = "A user's insee")
+    private @NonNull String insee;
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setCommune(String commune) {
-        this.commune = commune;
     }
 }
