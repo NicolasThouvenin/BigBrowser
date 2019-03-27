@@ -25,7 +25,4 @@ public class User {
     @GraphQLQuery(name = "insee", description = "A user's insee")
     private @NonNull String insee;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
