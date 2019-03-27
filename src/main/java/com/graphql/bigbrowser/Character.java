@@ -7,6 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.ElementCollection;
+import java.util.Date;
+
+import java.util.List;
+
 
 
 @Entity
@@ -30,19 +35,20 @@ public class Character {
     private String birthplace;
 
     @GraphQLQuery(name = "birthdate", description = "A character's birthdate")
-    private String birthdate;
+    private Date birthdate;
 
     @GraphQLQuery(name = "deathplace", description = "A character's deathplace as insee")
     private String deathplace;
 
     @GraphQLQuery(name = "deathdate", description = "A character's deathdate")
-    private String deathdate;
+    private Date deathdate;
 
     @GraphQLQuery(name = "fictionnal", description = "If the character is fictionnal")
     private Boolean fictionnal;
 
+    @ElementCollection(targetClass=String.class)
     @GraphQLQuery(name = "alias", description = "A character alias list")
-    private String[] alias;
+    private List<String> alias;
 
     @GraphQLQuery(name = "portrait", description = "A character's portrait")
     private Byte portrait;

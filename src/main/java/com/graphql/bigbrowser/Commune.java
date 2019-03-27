@@ -3,9 +3,9 @@ package com.graphql.bigbrowser;
 import io.leangen.graphql.annotations.GraphQLQuery;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
