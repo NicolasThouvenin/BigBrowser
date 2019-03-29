@@ -15,7 +15,6 @@ public class CommuneService {
 
     @GraphQLQuery(name = "commune")
     public Commune getCommuneByInsee(@GraphQLArgument(name = "insee") String insee) {
-        Commune commune = this.communeRepository.findByInsee(insee);
-        return commune;
+        return this.communeRepository.findByInsee(insee);
     }
 }

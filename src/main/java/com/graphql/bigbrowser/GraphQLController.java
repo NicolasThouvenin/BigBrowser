@@ -1,5 +1,6 @@
 package com.graphql.bigbrowser;
 
+import com.graphql.bigbrowser.answer.WhereIsBornedService;
 import graphql.ExecutionInput;
 import graphql.ExecutionResult;
 import graphql.GraphQL;
@@ -21,7 +22,7 @@ public class GraphQLController {
 
     private final GraphQL graphQL;
 
-    public GraphQLController(UserService userService, CommuneService communeService, CharacterService characterService) {
+    public GraphQLController(UserService userService, CommuneService communeService, CharacterService characterService, WhereIsBornedService whereIsBornedService) {
         GraphQLSchema schema = new GraphQLSchemaGenerator()
                 .withResolverBuilders(
                         //Resolve by annotations
@@ -29,6 +30,7 @@ public class GraphQLController {
                 .withOperationsFromSingleton(userService)
                 .withOperationsFromSingleton(communeService)
                 .withOperationsFromSingleton(characterService)
+                .withOperationsFromSingleton(whereIsBornedService)
                 .withValueMapperFactory(new JacksonValueMapperFactory())
                 .generate();
         graphQL = GraphQL.newGraphQL(schema).build();

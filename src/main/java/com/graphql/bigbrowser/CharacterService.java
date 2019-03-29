@@ -23,8 +23,7 @@ public class CharacterService {
 
     @GraphQLQuery(name = "randomCharacter")
     public Character getRandomCharacter() {
-        Character c = characterRepository.randomCharacter();
-        return c;
+        return characterRepository.randomCharacter();
     }
 
 }
