@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 interface IWhereIsBornedRepository extends JpaRepository<WhereIsBorned, Long> {
 
-    @Query(value="SELECT id, communeisgood, commune, insee, departementisgood, departement, departementnumber FROM whereisborned LIMIT 1", nativeQuery = true)
-    WhereIsBorned checkWhereIsBornedByCoordinates(Float easting, Float northing);
+    @Query(value="SELECT * FROM checkwhereisbornedbycoordinates(?1, ?2, ?3)", nativeQuery = true)
+    WhereIsBorned checkWhereIsBornedByCoordinates(Integer characterId, Float easting, Float northing);
 
-    @Query(value="SELECT id, communeisgood, commune, insee, departementisgood, departement, departementnumber FROM whereisborned LIMIT 1", nativeQuery = true)
-    WhereIsBorned checkWhereIsBornedByGeographicalEntityName(String name);
+    @Query(value="SELECT * FROM checkWhereIsBornedByGeographicalEntityName(?1, ?2)", nativeQuery = true)
+    WhereIsBorned checkWhereIsBornedByGeographicalEntityName(Integer characterId, String geographicalEntityName);
 }

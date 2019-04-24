@@ -14,15 +14,17 @@ public class WhereIsBornedService {
     }
 
     @GraphQLQuery(name = "whereIsBornedByCoordinates")
-    public WhereIsBorned checkWhereIsBornedByCoordinates(@GraphQLArgument(name = "easting") Float easting,
-                                                   @GraphQLArgument(name = "northing") Float northing) {
-        WhereIsBorned whereIsBorned = this.whereIsBornedRepository.checkWhereIsBornedByCoordinates(easting, northing);
+    public WhereIsBorned checkWhereIsBornedByCoordinates(@GraphQLArgument(name = "characterId") Integer characterId,
+                                                         @GraphQLArgument(name = "easting") Float easting,
+                                                         @GraphQLArgument(name = "northing") Float northing) {
+        WhereIsBorned whereIsBorned = this.whereIsBornedRepository.checkWhereIsBornedByCoordinates(characterId, easting, northing);
         return whereIsBorned;
     }
 
     @GraphQLQuery(name = "whereIsBornedByGeographicalEntityName")
-    public WhereIsBorned checkWhereIsBornedByGeographicalEntityName(@GraphQLArgument(name = "name") String name) {
-        WhereIsBorned whereIsBorned = this.whereIsBornedRepository.checkWhereIsBornedByGeographicalEntityName(name);
+    public WhereIsBorned checkWhereIsBornedByGeographicalEntityName(@GraphQLArgument(name = "characterId") Integer characterId,
+                                                                    @GraphQLArgument(name = "geographicalEntityName") String geographicalEntityName) {
+        WhereIsBorned whereIsBorned = this.whereIsBornedRepository.checkWhereIsBornedByGeographicalEntityName(characterId, geographicalEntityName);
         return whereIsBorned;
     }
 }
