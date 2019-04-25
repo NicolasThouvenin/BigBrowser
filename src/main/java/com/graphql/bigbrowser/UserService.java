@@ -29,6 +29,8 @@ public class UserService {
 
     @GraphQLMutation(name = "saveUser")
     public User saveUser(@GraphQLArgument(name = "user") User user) {
+        String passwordCrypted = Authentication.encodePassword(user.getPassword());
+        user.setPassword(passwordCrypted);
         return userRepository.save(user);
     }
 
