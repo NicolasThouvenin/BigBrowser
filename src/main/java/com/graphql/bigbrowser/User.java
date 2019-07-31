@@ -43,6 +43,6 @@ public class User {
     private @NonNull String password;
 
     @GraphQLQuery(name = "hasValidEmail", description = "if the user's email is valid")
-    @Column(name="has_valid_email", columnDefinition="Boolean default False")
+    @Column(name="hasvalidemail", columnDefinition="Boolean default False")
     private @NonNull boolean hasValidEmail;
 }
