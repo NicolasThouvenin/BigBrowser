@@ -3,17 +3,16 @@ package com.graphql.bigbrowser;
 import io.leangen.graphql.annotations.GraphQLQuery;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "departements")
 @Getter @Setter
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
-public class Departement {
+public class Departement implements Serializable {
 
     @Id
     @GraphQLQuery(name = "id", description = "id of database entity. it's nt the official id")
@@ -27,4 +26,7 @@ public class Departement {
 
     @GraphQLQuery(name = "regionNumber", description = "region official id")
     private @NonNull String region_number;
+
+    @OneToMany(mappedBy="departement")
+    private Set<Commune> communes;
 }

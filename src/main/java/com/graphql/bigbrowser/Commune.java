@@ -32,7 +32,9 @@ public class Commune  implements Serializable {
     private @NonNull Integer population;
 
     @GraphQLQuery(name = "departement", description = "")
-    private @NonNull String departement;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "departement", referencedColumnName="number")
+    private @NonNull Departement departement;
 
     @OneToMany(mappedBy="birthplace")
     private Set<Character> characters;
