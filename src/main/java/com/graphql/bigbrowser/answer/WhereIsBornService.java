@@ -5,26 +5,26 @@ import io.leangen.graphql.annotations.GraphQLQuery;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WhereIsBornedService {
+public class WhereIsBornService {
 
-    private final IWhereIsBornedRepository whereIsBornedRepository;
+    private final IWhereIsBornRepository whereIsBornRepository;
 
-    public WhereIsBornedService(IWhereIsBornedRepository whereIsBornedRepository) {
-        this.whereIsBornedRepository = whereIsBornedRepository;
+    public WhereIsBornService(IWhereIsBornRepository whereIsBornRepository) {
+        this.whereIsBornRepository = whereIsBornRepository;
     }
 
-    @GraphQLQuery(name = "whereIsBornedByCoordinates")
-    public WhereIsBorned checkWhereIsBornedByCoordinates(@GraphQLArgument(name = "characterId") Integer characterId,
+    @GraphQLQuery(name = "whereIsBornByCoordinates")
+    public WhereIsBorn checkWhereIsBornByCoordinates(@GraphQLArgument(name = "characterId") Integer characterId,
                                                          @GraphQLArgument(name = "easting") Float easting,
                                                          @GraphQLArgument(name = "northing") Float northing) {
-        WhereIsBorned whereIsBorned = this.whereIsBornedRepository.checkWhereIsBornedByCoordinates(characterId, easting, northing);
-        return whereIsBorned;
+        WhereIsBorn whereIsBorn = this.whereIsBornRepository.checkWhereIsBornByCoordinates(characterId, easting, northing);
+        return whereIsBorn;
     }
 
-    @GraphQLQuery(name = "whereIsBornedByGeographicalEntityName")
-    public WhereIsBorned checkWhereIsBornedByGeographicalEntityName(@GraphQLArgument(name = "characterId") Integer characterId,
+    @GraphQLQuery(name = "whereIsBornByGeographicalEntityName")
+    public WhereIsBorn checkWhereIsBornByGeographicalEntityName(@GraphQLArgument(name = "characterId") Integer characterId,
                                                                     @GraphQLArgument(name = "geographicalEntityName") String geographicalEntityName) {
-        WhereIsBorned whereIsBorned = this.whereIsBornedRepository.checkWhereIsBornedByGeographicalEntityName(characterId, geographicalEntityName);
-        return whereIsBorned;
+        WhereIsBorn whereIsBorn = this.whereIsBornRepository.checkWhereIsBornByGeographicalEntityName(characterId, geographicalEntityName);
+        return whereIsBorn;
     }
 }

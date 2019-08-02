@@ -3,11 +3,8 @@ package com.graphql.bigbrowser;
 import io.leangen.graphql.annotations.GraphQLQuery;
 import lombok.*;
 
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.ElementCollection;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 import java.util.List;
@@ -32,7 +29,9 @@ public class Character {
     private @NonNull String lastname;
 
     @GraphQLQuery(name = "birthplace", description = "A character's birthplace as insee")
-    private String birthplace;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "birthplace", referencedColumnName="insee")
+    private Commune birthplace;
 
     @GraphQLQuery(name = "birthdate", description = "A character's birthdate")
     private Date birthdate;

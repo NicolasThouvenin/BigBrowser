@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION public.checkwhereisbornedbygeographicalentityname(
+CREATE OR REPLACE FUNCTION public.checkWhereIsBornByGeographicalEntityName(
 	character_id integer,
 	geographical_entity_name character varying)
     RETURNS SETOF whereisborned 

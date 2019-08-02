@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION public.checkwhereisbornedbycoordinates(
+CREATE OR REPLACE FUNCTION public.checkWhereIsBornByCoordinates(
 	character_id integer,
 	longitude float,
 	latitude float

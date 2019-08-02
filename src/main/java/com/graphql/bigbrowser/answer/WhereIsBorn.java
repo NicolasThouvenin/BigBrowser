@@ -10,11 +10,11 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 
 @Entity
-@Table(name = "whereisborned")
+@Table(name = "whereisborn")
 @NoArgsConstructor
 @Getter @Setter
 @ToString @EqualsAndHashCode
-public class WhereIsBorned {
+public class WhereIsBorn {
 
     @Id
     private Long id;
